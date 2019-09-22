@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>hw11</title>
+</head>
+<body>
+	<script>
+		// bind
+		let user1 = {
+			name: "Vasya",
+			surname: "Petrov",
+			getInfoUser: function(){
+				return this.name + ' ' + this.surname
+			}
+		};
+
+		let user2 = {
+			name: "Roma",
+			surname: "Pupkin",
+		}
+
+		function byBind(obj, fn){
+			return function(){
+				return fn.apply(obj);
+			}
+		}
+		let user1FullName = byBind(user1, user1.getInfoUser);
+		let user2FullName = byBind(user2, user1.getInfoUser);
+		console.log(user1FullName());
+		console.log(user2FullName());
+
+		// map
+		let num = [1, 12, 25, 10];
+		let results = num.map(Math.pow);
+		console.log(num);
+		console.log(results);
+
+		
+
+		
+
+
+
+
+
+		 
+	</script>
+	
+
+</body>
+</html>
+
+<!-- call подвязывать контектст функции
+функцию -->
